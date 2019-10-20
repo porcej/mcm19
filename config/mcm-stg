@@ -1,5 +1,5 @@
 server {
-	listen 80;
+	listen 8080;
 	server_name ~^(www\.)?(?<domain>.+)$;
 
 	#################################################################
@@ -11,8 +11,8 @@ server {
 	location /stg-manage {
 		proxy_pass          https://stg-manage.hakuapp.com/;
 		# proxy_redirect      ~*^https://(stg-[^\.]+)\.hakuapp\.com/ http://$host/$1/;
-		proxy_redirect      https://stg-manage.hakuapp.com/ http://$host/stg-manage/;
-		proxy_redirect      https://stg-organizer.hakuapp.com/ http://$host/;
+		proxy_redirect      https://stg-manage.hakuapp.com/ http://$host:8080/stg-manage/;
+		proxy_redirect      https://stg-organizer.hakuapp.com/ http://$host:8080/;
 		proxy_set_header    Accept-Encoding "";
 		proxy_set_header    Host stg-manage.hakuapp.com;
 		proxy_set_header    X-Real-IP  $remote_addr;
@@ -28,11 +28,11 @@ server {
 		sub_filter_types    *;
 		sub_filter_once     off;
 
-		sub_filter          https://stg-organizer.hakuapp.com http://$host/;
-		sub_filter          https://s3.amazonaws.com http://$host/s3;
-		sub_filter          https://fonts.googleapis.com http://$host/gfonts;
-		sub_filter          //v2.zopim.com http://$host/zopim;
-		sub_filter          /auth/identity/callback 'http://$host/stg-manage/auth/identity/callback';
+		sub_filter          https://stg-organizer.hakuapp.com http://$host:8080/;
+		sub_filter          https://s3.amazonaws.com http://$host:8080/s3;
+		sub_filter          https://fonts.googleapis.com http://$host:8080/gfonts;
+		sub_filter          //v2.zopim.com http://$host:8080/zopim;
+		sub_filter          /auth/identity/callback 'http://$host:8080/stg-manage/auth/identity/callback';
 		sub_filter          https http;
 		sub_filter          href="/ href="/stg-manage/;
 		sub_filter          src="/ src="/stg-manage/;
@@ -44,9 +44,9 @@ server {
 
 	location /{ 
 		proxy_pass          https://stg-organizer.hakuapp.com/;
-		# proxy_redirect      ~*^https://(stg-[^\.]+)\.hakuapp\.com/ http://$host/$1/;
-		proxy_redirect      https://stg-manage.hakuapp.com/ http://$host/stg-manage/;
-		proxy_redirect      https://stg-organizer.hakuapp.com/ http://$host/;
+		# proxy_redirect      ~*^https://(stg-[^\.]+)\.hakuapp\.com/ http://$host:8080/$1/;
+		proxy_redirect      https://stg-manage.hakuapp.com/ http://$host:8080/stg-manage/;
+		proxy_redirect      https://stg-organizer.hakuapp.com/ http://$host:8080/;
 		proxy_set_header    Accept-Encoding "";
 		proxy_set_header    Host stg-organizer.hakuapp.com;
 		proxy_set_header    X-Real-IP  $remote_addr;
@@ -62,11 +62,11 @@ server {
 		sub_filter_types    *;
 		sub_filter_once     off;
 
-		sub_filter          https://stg-organizer.hakuapp.com http://$host/;
-		sub_filter          https://s3.amazonaws.com http://$host/s3;
-		sub_filter          https://fonts.googleapis.com http://$host/gfonts;
-		sub_filter          //v2.zopim.com http://$host/zopim;
-		sub_filter          /auth/identity/callback 'http://$host/stg-manage/auth/identity/callback';
+		sub_filter          https://stg-organizer.hakuapp.com http://$host:8080/;
+		sub_filter          https://s3.amazonaws.com http://$host:8080/s3;
+		sub_filter          https://fonts.googleapis.com http://$host:8080/gfonts;
+		sub_filter          //v2.zopim.com http://$host:8080/zopim;
+		sub_filter          /auth/identity/callback 'http://$host:8080/stg-manage/auth/identity/callback';
 		sub_filter          https http;
 		# sub_filter          href="/ href="/stg-organizer/;
 		# sub_filter          src="/ src="/stg-organizer/;
@@ -77,8 +77,8 @@ server {
 		# sub_filter          'url("/fonts/' 'url("/stg-organizer/fonts/';
 		# sub_filter          'url("/assets/' 'url("/stg-organizer/assets/';
 		# sub_filter          'url("/images/' 'url("/stg-organizer/images/';
-		sub_filter          ws.pusherapp.com $host/pusher;
-		sub_filter          sockjs.pusher.com $host/pusherjs;
+		sub_filter          ws.pusherapp.com $host:8080/pusher;
+		sub_filter          sockjs.pusher.com $host:8080/pusherjs;
 		sub_filter          "wss_port=443," "wss_port=80,";
 		sub_filter          "sockjs_https_port=443," "sockjs_https_port=80,";
 		sub_filter          'hostEncrypted:t.wsHost+":"+t.wssPort' 'hostEncrypted:t.wsHost';
