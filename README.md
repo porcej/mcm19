@@ -6,15 +6,15 @@
 1. Log into the Raspberry Pi username: pi password: raspberry
 1. Update installed software: $ sudo apt-get update && sudo apt-get upgrade -y
 1. Run the Raspbian Config Utility: $ sudo raspi-config
-  * Expand the filesystem: Advanced -> Expand Filesystem
-  * Update CPU/GPU Memory Split: Advanced -> Memory Split -> 16
-  * Enable SSH (Optional): Interfaces -> SSH -> Select Enabled
-  * Configure Locilization Options:
+   * Expand the filesystem: Advanced -> Expand Filesystem
+   * Update CPU/GPU Memory Split: Advanced -> Memory Split -> 16
+   * Enable SSH (Optional): Interfaces -> SSH -> Select Enabled
+   * Configure Locilization Options:
     * Set Local: Localization Options -> Change Local -> Select as appropriate, Here in Northern Virgina, I use en_US-UTF-8
     * Set Timezone Localization Options -> Change Time Zone -> Select as appropraite
     * If using Wifi set the Wifi County: Localization Options -> Wifi Country -> Select as appropraite
-  * Set Hostname: Network Options -> Hostname
-  * If using Wifi, setup Wifi Network: Network Options -> Wifi
+   * Set Hostname: Network Options -> Hostname
+   * If using Wifi, setup Wifi Network: Network Options -> Wifi
 1. Reboot the Pi $ sudo reboot
 1. When the Raspberry Pi boots up either log in through the termial of ssh in
 1. Install Nginx: $ sudo apt-get install nginx -y
