@@ -1,7 +1,7 @@
 # mcm19 - Reverse Proxy for MCM19 Hams running on a Raspberry Pi
 ### A quick and dirty tutorial on running a Nginx reverse proxy on a Raspberry Pi
 
-1. Download the latest Raspbian Lite, version Buster as of time of writing from the Raspberry Pi foundation. Raspbian Download
+1. Download the latest Raspbian Lite, version Buster as of time of writing from the Raspberry Pi foundation. [Raspberry Pi OS Lite Download](https://downloads.raspberrypi.org/raspios_lite_armhf/images/raspios_lite_armhf-2021-05-28/2021-05-07-raspios-buster-armhf-lite.zip)
 1. Write the download image to an SD card. Please see the Raspberry Pi Foundation's Tutorial if you need help here Raspbian Installation
 1. Log into the Raspberry Pi username: pi password: raspberry
 1. Update installed software: $ sudo apt-get update && sudo apt-get upgrade -y
