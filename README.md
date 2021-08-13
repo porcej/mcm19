@@ -16,14 +16,14 @@
    * Set Hostname: Network Options -> Hostname
    * If using Wifi, setup Wifi Network: Network Options -> Wifi
 1. Reboot the Pi $ sudo reboot
-1. When the Raspberry Pi boots up either log in through the termial of ssh in
-1. Install Nginx: $ sudo apt-get install nginx -y
-1. Start Nginx: $ sudo systemctl start nginx
-1. Change to the Nginx sites-available directory: $ cd /etc/nginx/sites-available/
-1. Download the starter configuration: $ sudo curl -o mcm-prd https://kt3i.com/files/mcm-prd
+1. When the Raspberry Pi boots up either log in through the termial or ssh in
+1. Install Nginx: `$ sudo apt-get install nginx -y`
+1. Start Nginx: `$ sudo systemctl start nginx`
+1. Change to the Nginx sites-available directory: `$ cd /etc/nginx/sites-available/`
+1. Download the starter configuration: `$ sudo curl -o mcm-prd https://kt3i.com/files/mcm-prd`
 1. Edit the configuration to listen for your host. Use either a FQDN thats registered in DNS or the Raspberry Pi's IP address:
-1. $sudo nano mcm-prd
+1. Edit the config `$ sudo nano mcm-prd`
 1. Replace DEFALUT_HOSTNAME with either the Pi's IP address or a FQDN thats registered in DNS reachable by your intended clients
-1. Symlink the configuration to the sites-enabled directory: $ sudo ln -s /etc/nginx/sites-available/mcm-prd /etc/nginx/sites-enabled/mcm-prd
-1. Test the confiuration: sudo nginx -t
-1. If the above test passes, reload Nginx: sudo systemctl reload nginx
+1. Symlink the configuration to the sites-enabled directory: `$ sudo ln -s /etc/nginx/sites-available/mcm-prd /etc/nginx/sites-enabled/mcm-prd`
+1. Test the confiuration: `$ sudo nginx -t`
+1. If the above test passes, reload Nginx: `$ sudo systemctl reload nginx`
