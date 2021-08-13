@@ -10,9 +10,9 @@
    * Update CPU/GPU Memory Split: Advanced -> Memory Split -> 16
    * Enable SSH (Optional): Interfaces -> SSH -> Select Enabled
    * Configure Locilization Options:
-    * Set Local: Localization Options -> Change Local -> Select as appropriate, Here in Northern Virgina, I use en_US-UTF-8
-    * Set Timezone Localization Options -> Change Time Zone -> Select as appropraite
-    * If using Wifi set the Wifi County: Localization Options -> Wifi Country -> Select as appropraite
+      * Set Local: Localization Options -> Change Local -> Select as appropriate, Here in Northern Virgina, I use en_US-UTF-8
+      * Set Timezone Localization Options -> Change Time Zone -> Select as appropraite
+      * If using Wifi set the Wifi County: Localization Options -> Wifi Country -> Select as appropraite
    * Set Hostname: Network Options -> Hostname
    * If using Wifi, setup Wifi Network: Network Options -> Wifi
 1. Reboot the Pi $ sudo reboot
